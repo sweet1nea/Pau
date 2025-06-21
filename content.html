@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Pau!</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Great Vibes', cursive;
+      background: url('bgimage3.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #c71585;
+      text-align: center;
+    }
+
+    .birthday-header {
+      margin-top: 50px;
+      margin-bottom: 40px;
+    }
+
+    .birthday-header h1 {
+      font-size: 48px;
+      font-family: 'Great Vibes', cursive;
+      color: #d63384;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .birthday-header .subtitle {
+      font-size: 20px;
+      font-family: 'Times New Roman', serif;
+      color: #b03060;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .birthday-header .heart {
+      font-size: 20px;
+    }
+
+    .divider {
+      width: 90%;
+      height: 4px;
+      background: linear-gradient(to right, #ffd6e8, #fff);
+      border: none;
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    section {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .gallery {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: opacity 0.5s ease-in-out;
+      position: absolute;
+      opacity: 0;
+    }
+
+    .gallery img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .gallery-controls {
+      margin-top: 15px;
+    }
+
+    .gallery-controls button {
+      background-color: #ffc0cb;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .birthday-video {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .btn-message {
+      display: inline-block;
+      margin: 30px auto 20px;
+      padding: 15px 25px;
+      font-size: 16px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: black;
+        font-family: 'Times New Roman', serif;
+    }
+
+    footer {
+      font-size: 20px;
+      font-family: 'Times New Roman', serif;
+      color: #c71585;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+    .ribbons img, .stickers img {
+      position: absolute;
+      width: 60px;
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 768px) {
+      .birthday-header h1 {
+        font-size: 28px;
+      }
+      .birthday-header .subtitle {
+        font-size: 16px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="birthday-header">
+    <h1>Happy Birthday, Pau!</h1>
+    <p class="subtitle">
+      <span class="heart">💖</span>
+      Wishing you the most magical day filled with love and joy.
+    </p>
+    <hr class="divider">
+  </div>
+
+  <!-- GALLERY -->
+  <section>
+    <h2>Photo Memories 📸</h2>
+    <div class="gallery" id="gallery">
+      <img src="1.jpg" alt="Memory 1" class="active">
+      <img src="2.jpg" alt="Memory 2">
+      <img src="3.jpg" alt="Memory 3">
+      <img src="4.jpg" alt="Memory 4">
+      <img src="5.jpg" alt="Memory 5">
+    </div>
+    <div class="gallery-controls">
+      <button onclick="changeSlide(-1)">Previous</button>
+      <button onclick="changeSlide(1)">Next</button>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-section">
+    <h2>Birthday Vlog 🎥</h2>
+    <video controls class="birthday-video">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- READ MESSAGE BUTTON -->
+  <section>
+    <button class="btn-message" onclick="goToMessage()">Read My Message</button>
+    <hr class="divider">
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Made special for your day. (✿◡‿◡)
+  </footer>
+
+  <!-- DECORATIONS -->
+  <div class="ribbons">
+    <img src="ribbon1.png" style="top:10%; left:5%;">
+    <img src="ribbon1.png" style="top:30%; right:10%;">
+  </div>
+  <div class="stickers">
+    <img src="heart1.png" style="bottom:20%; left:10%;">
+    <img src="flower1.png" style="bottom:5%; right:5%;">
+  </div>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('#gallery img');
+
+      function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+
+      window.changeSlide = changeSlide;
+    });
+
+    function goToMessage() {
+      sessionStorage.setItem("playAudio", "true");
+      window.location.href = "message.html";
+    }
+  </script>
+</body>
+</html>
